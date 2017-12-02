@@ -1,0 +1,82 @@
+
+
+The Monitoring System APIs to fetch the data stored in the Cassandra TSDB are as follows:
+
+
+###################################################################
+API1: Fetching the list of Containers.
+%%%%%%%%%%%%%%%%%
+Method: GET
+%%%%%%%%%%%%%%%%%
+Description: Each container being monitored can be recognized by a unique ID called agentID. This API gives the list of all monitored containers and their information including IP, status and name. The status can be different as follows:
+•	UP: The container is running and sending measured values to the Monitoring Server.
+•	DOWN: If a container stops working, after a while (a certain period) the Monitoring Server will put "DOWN" for the container's stat automatically. Because, the container has not sent any value for that certain period of time.
+•	TERMINATED: After DOWN status, again if the container would not send any value for a certain period of time, the Monitoring Server will put "TERMINATED" for the container's stat automatically.
+%%%%%%%%%%%%%%%%%
+Input parameters: None
+%%%%%%%%%%%%%%%%%
+Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/
+%%%%%%%%%%%%%%%%%
+Example	http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/
+%%%%%%%%%%%%%%%%%
+Result:
+{"agents":[
+{"agentID":"fac87442ef9b4b7c884cb112614ed2bd","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"},
+{"agentID":"2dc0712372f74c2a91cd94efa3945023","agentIP":"194.249.1.72","status":"UP","agentName":"194.249.1.72"},
+{"agentID":"1937e52f34e941a0977a455830f4f94a","agentIP":"111.201.202.345","status":"TERMINATED","agentName":"111.201.202.345"},
+{"agentID":"869706bffc8242ffbcb44f3d3dc048f2","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"}
+]}
+###################################################################
+
+
+###################################################################
+API2: Fetching the list of metrics being monitored for a specified container.
+%%%%%%%%%%%%%%%%%
+Method: GET
+%%%%%%%%%%%%%%%%%
+Description: This API gives the list of measured metrics being monitored for a container specified via an ID. For each metric, it shows the information e.g. ID of metrics, name of metrics (metric_name), scale of metrics (units), type of metrics (data_type), group name of metrics (metric_group_name) and so on.
+%%%%%%%%%%%%%%%%%
+Input parameters: agentID which is an ID for a given container
+%%%%%%%%%%%%%%%%%
+Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/<agentID>/availableMetrics
+%%%%%%%%%%%%%%%%%
+Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/2dc0712372f74c2a91cd94efa3945023/availableMetrics
+%%%%%%%%%%%%%%%%%
+Result: 
+{"metrics":[
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:arch","name":"arch","units":"","type":"STRING","group":"StaticInfo"},
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:btime","name":"btime","units":"","type":"STRING","group":"StaticInfo"},
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuNum","name":"cpuNum","units":"","type":"STRING","group":"StaticInfo"},
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal","name":"cpuTotal","units":"percent","type":"DOUBLE","group":"CPU"},
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:memTotal","name":"memTotal","units":"KB","type":"DOUBLE","group":"Memory"},
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:os","name":"os","units":"","type":"STRING","group":"StaticInfo"}
+]}
+###################################################################
+
+###################################################################
+API3: Fetching the last value of a metric.
+Method: GET
+Description: This API gives the last value of a metric specified via metricID.
+Input parameters: MetricID (which represents  “agentid”+“metric_name”)
+Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>
+Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/metrics/2dc0712372f74c2a91cd94efa3945023:cpuTotal
+Result:
+{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal", "values":[{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal","name":"cpuTotal","units":"percent","type":"DOUBLE","group":"CPU","value":"7950","timestamp":"14:19:56"}]}
+###################################################################
+
+
+###################################################################
+API4: Fetch the list of containers in a Subscription Cluster
+Method: GET
+Description: Each Subscription Cluster has a unique id which is called "subid". This API gives the list of containers (their ID (agentID) and their IP (agentIP)) which are the members of a Subscription Cluster specified via a given ID (subid).
+Input parameters: subid
+Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/subscriptions/<subid>/agents
+Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/subscriptions/1ccba0cc92174ce788695cfc0a027b57/agents
+Result: 
+{"agents":[{"agentID":"2dc0712372f74c2a91cd94efa3945023","agentIP":"194.249.1.72"}]}
+###################################################################
+
+
+###################################################################
+
+###################################################################
