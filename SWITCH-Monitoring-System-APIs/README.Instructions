@@ -1,4 +1,6 @@
-
+// ------------------------------------------------------------------------
+// Authors: Salman Taherizadeh
+// ------------------------------------------------------------------------
 
 The Monitoring System APIs to fetch the data stored in the Cassandra TSDB are as follows:
 
