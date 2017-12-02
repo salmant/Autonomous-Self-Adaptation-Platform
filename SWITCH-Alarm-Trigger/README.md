@@ -45,7 +45,7 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
 ## Step 2- Using APIs to populate subscription_agents_table.
 
-<br />API1: To add a container instance to a Subscription Cluster.
+## API1: To add a container instance to a Subscription Cluster.
 
 <br />Method: GET
 
