@@ -40,7 +40,7 @@ Step 2- Using APIs to populate subscription_agents_table.
 
 
 ###################################################################
-Endpoint: To add a container instance to a Subscription Cluster.
+API1: To add a container instance to a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: GET
 %%%%%%%%%%%%%%%%%
@@ -60,7 +60,7 @@ Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1cc
 
 
 ###################################################################
-Endpoint: To add a container instance to a Subscription Cluster.
+API2: To add a container instance to a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: POST
 %%%%%%%%%%%%%%%%%
@@ -80,7 +80,7 @@ Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1cc
 
 
 ###################################################################
-Endpoint: To delete a container instance from a Subscription Cluster.
+API3: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: GET
 %%%%%%%%%%%%%%%%%
@@ -99,7 +99,7 @@ Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1c
 
 
 ###################################################################
-Endpoint: To delete a container instance from a Subscription Cluster.
+API4: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: POST
 %%%%%%%%%%%%%%%%%
