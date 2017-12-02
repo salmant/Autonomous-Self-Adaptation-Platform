@@ -1,0 +1,25 @@
+
+
+A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
+
+There is a table in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example, there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid". 
+
+
+
+Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”
+
+docker run -e MONITORING_SERVER="194.249.1.175" -p 8080:8080 -p 4242:4242 -p 4245:4245 -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 salmant/ul_monitoring_server_container_image:latest
+
+It takes almost one minute to run the Monitoring Server. The Monitoring Server should be running on a machine with enough memory, disk and CPU resources. This machine should address the Cassandra hardware requirements explained in the following page:
+
+https://wiki.apache.org/cassandra/CassandraHardware
+
+Note 1: The Dockerfile to make the Monitoring Server container image is as follows:
+
+https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
+
+Note 2: The Monitoring Server container image is publically released on Docker Hub: 
+
+https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
+
+Step 2- 
