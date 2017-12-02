@@ -10,7 +10,7 @@ It takes almost one minute to run the Monitoring Server. The Monitoring Server s
 
 https://wiki.apache.org/cassandra/CassandraHardware
 
-Note 1: The environment variable named "MONITORING_SERVER" should be the IP address of the machine where the Monitoring Server is running.
+Note 1: The environment variable named `MONITORING_SERVER` should be the IP address of the machine where the Monitoring Server is running.
 
 Note 2: The Dockerfile to make the Monitoring Server container image is as follows:
 
@@ -42,10 +42,10 @@ https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/MonitoringA
 Note 1: Implementing a StatsD client is very simple. After a quick skim through the above example (MonitoringAgent.java), you would easily find out how to write your own code based on whatever programming language.
 
 Note 2:  Different parameters have been defined in this code (MonitoringAgent.java). Therefore, you should define these parameters as needed.
-* MONITORING_PREFIX
-* Monitoring Adapter's IP address (MONITORING_ADAPTER)
-* Container's IP address (DockerHost_IP) which is called agentip in the Monitoring System
-* Monitoring interval (MonitoringInterval_ms)
+* `MONITORING_PREFIX`
+* Monitoring Adapter's IP address (`MONITORING_ADAPTER`)
+* Container's IP address (`DockerHost_IP`) which is called agentip in the Monitoring System
+* Monitoring interval (`MonitoringInterval_ms`)
 * <metric_group_name>
 * <metric_name>
 * <units> which represents the scale of metric. 
