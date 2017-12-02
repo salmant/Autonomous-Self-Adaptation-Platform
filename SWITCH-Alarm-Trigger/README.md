@@ -142,7 +142,7 @@ An example for the JSON notification is shown below:
 
 Accordingly, before the Alarm-Trigger starts working, the API to receive notifications should be ready and available. However, if this API is not prepared when the Alarm-Trigger is working, this fact cannot stop the Alarm-Trigger to proceed ahead. When we would like to launch the Alarm-Trigger later, this API should be defined for this component as an input. 
 
-Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63".
+Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63". 
 
 docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e MONITORING_SERVER="194.249.1.175" -e JSONAlertURL="https://gurujsonrpc.appspot.com/guru" -e JSONAlertURLSIDEGUI="https://gurujsonrpc.appspot.com/guru" -p 4444:8080 salmant/ul_alarm_trigger_container_image:latest
 
