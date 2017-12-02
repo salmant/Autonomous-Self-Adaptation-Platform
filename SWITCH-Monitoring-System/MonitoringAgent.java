@@ -1,3 +1,6 @@
+// ------------------------------------------------------------------------
+// Authors: Salman Taherizadeh
+// ------------------------------------------------------------------------
 package com.timgroup.statsd;
 import com.timgroup.statsd.StatsDClient;
 import com.timgroup.statsd.NonBlockingStatsDClient;
