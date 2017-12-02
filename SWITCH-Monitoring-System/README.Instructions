@@ -10,7 +10,7 @@ It takes almost one minute to run the Monitoring Server. The Monitoring Server s
 
 https://wiki.apache.org/cassandra/CassandraHardware
 
-Note 1: the Dockerfile to make the Monitoring Server container image is as follows:
+Note 1: The Dockerfile to make the Monitoring Server container image is as follows:
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
 
