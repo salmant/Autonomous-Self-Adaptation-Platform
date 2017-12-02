@@ -4,9 +4,9 @@ Author: Salman Taherizadeh
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
 
 There is a table (subscription_agents_table) in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example (subscription_agents_table.png), there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid".
-<p align="center">
+
 ![Image](https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/subscription_agents_table.png)
-</p>
+
 
 In this example (subscription_agents_table.png): 
   - The Subscription Cluster has the subid that is equal to "1ccba0cc92174ce788695cfc0a027b57"
@@ -86,7 +86,7 @@ Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1cc
 ***
 
 
-###################################################################
+***
 API3: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: GET
@@ -102,10 +102,10 @@ Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteS
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-###################################################################
+***
 
 
-###################################################################
+***
 API4: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: POST
@@ -121,7 +121,7 @@ Template: curl -H "Content-Type: application/json" -X POST http://<MONITORING_SE
 Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-###################################################################
+***
 
 Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
 To this end, the YAML file should be accessible via a URL such as "http://194.249.1.72:5000/AlarmTrigger.yml". The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
@@ -147,7 +147,9 @@ Accordingly, before the Alarm-Trigger starts working, the API to receive notific
 
 Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63". 
 
+```
 docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e MONITORING_SERVER="194.249.1.175" -e JSONAlertURL="https://gurujsonrpc.appspot.com/guru" -e JSONAlertURLSIDEGUI="https://gurujsonrpc.appspot.com/guru" -p 4444:8080 salmant/ul_alarm_trigger_container_image:latest
+```
 
 As shown in the above command, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
 	- MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
