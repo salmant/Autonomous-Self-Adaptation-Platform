@@ -1,4 +1,6 @@
-
+// ------------------------------------------------------------------------
+// Authors: Salman Taherizadeh
+// ------------------------------------------------------------------------
 
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
 
