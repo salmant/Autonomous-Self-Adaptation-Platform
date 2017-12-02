@@ -1,6 +1,4 @@
 #!/bin/bash
-# Synopsis: ./start.sh --AlarmTriggerYMLURL=salam --MONITORING_SERVER=hello --JSONAlertURL=test --JSONAlertURLSIDEGUI=test2
-
 
 java AlarmTrigger $AlarmTriggerYMLURL $MONITORING_SERVER catascopia_user catascopia_pass logfile.txt $JSONAlertURL $JSONAlertURLSIDEGUI &
 
