@@ -4,6 +4,7 @@ Author: Salman Taherizadeh
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
 
 There is a table (subscription_agents_table) in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example (subscription_agents_table.png), there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid".
+
 ![Image](https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/subscription_agents_table.png)
 
 
@@ -45,7 +46,7 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 Step 2- Using APIs to populate subscription_agents_table.
 
 
-###################################################################
+***
 API1: To add a container instance to a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: GET
@@ -62,10 +63,10 @@ Template: http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscr
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-###################################################################
+***
 
 
-###################################################################
+***
 API2: To add a container instance to a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: POST
@@ -82,7 +83,7 @@ Template: curl -H "Content-Type: application/json" -X POST http://<MONITORING_SE
 Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-###################################################################
+***
 
 
 ###################################################################
