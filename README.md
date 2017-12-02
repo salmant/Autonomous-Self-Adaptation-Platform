@@ -1,4 +1,4 @@
-If you used any part of the SWITCH Monitoring System presented here, please cite the following paper:
+If you used any part of the SWITCH Monitoring System, please cite the following paper:
 
 `Salman Taherizadeh and Vlado Stankovski (2017) “Dynamic Multi-level Auto-scaling Rules for Containerized Applications”, Computer Journal, Oxford University Press. [Under review]`
 
