@@ -2,7 +2,7 @@
 
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
 
-There is a table in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example (subscription_agents_table.png), there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid". 
+There is a table (subscription_agents_table) in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example (subscription_agents_table.png), there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid". 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/subscription_agents_table.png
 
 In this example (subscription_agents_table.png): 
@@ -28,11 +28,13 @@ It takes almost one minute to run the Monitoring Server. The Monitoring Server s
 
 https://wiki.apache.org/cassandra/CassandraHardware
 
-Note 1: The Dockerfile to make the Monitoring Server container image is as follows:
+Note 1: The environment variable named "MONITORING_SERVER" should be the IP address of the machine where the Monitoring server is running.
+
+Note 2: The Dockerfile to make the Monitoring Server container image is as follows:
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
 
-Note 2: The Monitoring Server container image is publically released on Docker Hub: 
+Note 3: The Monitoring Server container image is publically released on Docker Hub: 
 
 https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
@@ -142,18 +144,25 @@ Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63".
 
 docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e MONITORING_SERVER="194.249.1.175" -e JSONAlertURL="https://gurujsonrpc.appspot.com/guru" -e JSONAlertURLSIDEGUI="https://gurujsonrpc.appspot.com/guru" -p 4444:8080 salmant/ul_alarm_trigger_container_image
 
-As shown, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
+As shown in the above command, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
 	- MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
 	- AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
 	- JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
 	- JSONAlertURLSIDEGUI: This is the URL prepared by the SIDE GUI. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
 
-If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
+Note 1: If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
 
 http://<AlarmTrigger_IP>:<Port>/logfile.jsp
 
-Moreover, another API has been implemented to empty the log file which consists of alarm notifications. 
+Note 2: Moreover, another API has been implemented to empty the log file which consists of alarm notifications. 
 
 http://<AlarmTrigger_IP>:<Port>/emptylogfile.jsp
 
+Note 3: The Dockerfile to make the Monitoring Server container image is as follows:
+
+https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
+
+Note 4: The Monitoring Server container image is publically released on Docker Hub: 
+
+https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
