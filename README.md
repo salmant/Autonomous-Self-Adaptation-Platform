@@ -8,5 +8,4 @@ If you used any part of the SWITCH Monitoring System, please cite the following 
 We would like to hear from people using our Monitoring System. If you have any question or you would like to discuss any part of the system, please send an email to Salman.Taherizadeh@fgg.uni-lj.si 
 
 ## Licence
-The SWITCH Monitoring System is published under the [Apache 2 license].
-[Apache 2 license]: https://github.com/salmant/ASAP/blob/master/LICENSE
+The SWITCH Monitoring System is published under the [Apache 2 license] (https://github.com/salmant/ASAP/blob/master/LICENSE).
