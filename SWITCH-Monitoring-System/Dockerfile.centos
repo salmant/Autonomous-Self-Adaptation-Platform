@@ -1,0 +1,30 @@
+FROM poklet/cassandra:latest
+
+MAINTAINER "Salman Taherizadeh - University of Ljubljana"
+
+ARG TOMCAT_VERSION=7.0.55
+ARG TOMCAT_DIR=/usr/share
+
+
+# Install JCatascopia Monitoring Server, Tomcat and JCatascopia-Web servlet. Configure Cassandra 
+
+RUN yum install -y yum-plugin-ovl
+RUN yum install -y wget tar unzip
+RUN yum clean all
+RUN wget -O - https://www.dropbox.com/s/lodwxb237u4fets/JCatascopia-Server-0.0.2-SNAPSHOT.tar.gz | \
+tar xz -C /
+RUN wget -O - http://archive.apache.org/dist/tomcat/tomcat-7/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | \
+tar xz -C $TOMCAT_DIR/
+RUN mv $TOMCAT_DIR/apache-tomcat-$TOMCAT_VERSION $TOMCAT_DIR/tomcat/
+RUN wget -P $TOMCAT_DIR/tomcat/webapps https://www.dropbox.com/s/wgj9zagy2dblfta/JCatascopia-Web.war
+RUN unzip $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web.war -d $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web
+RUN mkdir -p /usr/share/tomcat/webapps/JCatascopia-Web/WEB-INF
+RUN sed -i 's/securerandom.source=file:\/dev\/random/securerandom.source=file:\/dev\/.\/urandom/g' /usr/lib/jvm/jre/lib/security/java.security 
+
+COPY start.sh /root/start.sh
+RUN chmod 777 /root/start.sh
+	
+EXPOSE 8080 4242 4245 9160 9042 7199 7000 7001 8012 61621
+
+ENTRYPOINT ["/root/start.sh"]
+
