@@ -33,7 +33,7 @@ It takes almost one minute to run the Monitoring Server. The Monitoring Server s
 
 https://wiki.apache.org/cassandra/CassandraHardware
 
-Note 1: The environment variable named "MONITORING_SERVER" should be the IP address of the machine where the Monitoring server is running.
+Note 1: The environment variable named "MONITORING_SERVER" should be the IP address of the machine where the Monitoring Server is running.
 
 Note 2: The Dockerfile to make the Monitoring Server container image is as follows:
 
