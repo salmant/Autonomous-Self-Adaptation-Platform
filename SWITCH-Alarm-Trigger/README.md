@@ -124,10 +124,10 @@ docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e 
 ```
 
 As shown in the above command, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
-* MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
-* AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
-* JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
-* JSONAlertURLSIDEGUI: This is the URL prepared by the SWITCH Web-based IDE (SIDE). This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+* `MONITORING_SERVER`: This is the IP address of the Monitoring Server explained in Step 1.
+* `AlarmTriggerYMLURL`: This is the URL to fetch the YAML file explained in Step 3.
+* `JSONAlertURL`: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+* `JSONAlertURLSIDEGUI`: This is the URL prepared by the SWITCH Web-based IDE (SIDE). This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
 
 Note 1: If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
 
