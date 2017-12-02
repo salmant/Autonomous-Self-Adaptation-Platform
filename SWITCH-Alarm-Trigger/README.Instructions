@@ -14,10 +14,13 @@ In this example (subscription_agents_table.png):
 
 Having such information is necessary. Because, you can consider a threshold (e.g. CPU threshold) for a Subscription Cluster. For example, it is possible to specify a CPU-based auto-scaling policy that more containers will be launched if the average CPU utilization of the Subscription Cluster is over a threshold such as 80%. Therefore, to make the average, you should know which containers are in a Subscription Cluster. In the real-world use cases, the auto-scaling policies could be based on the response time of a given service. Therefore, we can also consider other thresholds for application-level metrics, if needed. 
 
+"agentid" is used for the unique identification of container instances. "subid" is the unique identification of Subscription Clusters. Moreover, "agentip" represents "container's IP address" explained here: 
+https://github.com/salmant/ASAP/tree/master/SWITCH-Monitoring-System
+
 
 Instructions for the utilisation of Alarm-Trigger component in the SWITCH project:
 
-Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”
+Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
 
 docker run -e MONITORING_SERVER="194.249.1.175" -p 8080:8080 -p 4242:4242 -p 4245:4245 -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 salmant/ul_monitoring_server_container_image:latest
 
@@ -33,5 +36,20 @@ Note 2: The Monitoring Server container image is publically released on Docker H
 
 https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
-Step 2- 
+Step 2- Using APIs to populate subscription_agents_table.
+
+To insert a row in this table, the following APIs can be used: 
+###################################################################
+Endpoint: To add a container instance to a Subscription Cluster.
+Method: GET
+Description: Insert a row into the table which represents Subscription Clusters
+Input parameters: subid, agentid and agentip.
+  - subid is the id of Subscription Cluster
+  - agentid represents the id of container instance
+  - agentip represents the IP of container instance
+Template: http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>
+Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
+Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+###################################################################
+
 
