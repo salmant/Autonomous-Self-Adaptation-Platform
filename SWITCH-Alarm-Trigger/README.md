@@ -96,9 +96,9 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 <br />Result: 49476cf05aa24c8c9e7cde38154c was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 
 ## Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
-To this end, the YAML file should be accessible via a URL such as "http://194.249.1.72:5000/AlarmTrigger.yml". The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
+To this end, the YAML file should be accessible via a URL such as `http://194.249.1.72:5000/AlarmTrigger.yml`. The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
 
-A template for the YAML file can be seen here: 
+The template for the YAML file can be seen here: 
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/AlarmTrigger.yml
 
@@ -131,11 +131,11 @@ As shown in the above command, if we would like to run the Alarm-Trigger compone
 
 Note 1: If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
 
-http://<AlarmTrigger_IP>:<Port>/logfile.jsp
+`http://<AlarmTrigger_IP>:<Port>/logfile.jsp`
 
 Note 2: Moreover, another API has been implemented to empty the log file which consists of alarm notifications. 
 
-http://<AlarmTrigger_IP>:<Port>/emptylogfile.jsp
+`http://<AlarmTrigger_IP>:<Port>/emptylogfile.jsp`
 
 Note 3: The Dockerfile to make the Alarm-trigger container image is as follows:
 
