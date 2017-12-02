@@ -158,11 +158,11 @@ Note 2: Moreover, another API has been implemented to empty the log file which c
 
 http://<AlarmTrigger_IP>:<Port>/emptylogfile.jsp
 
-Note 3: The Dockerfile to make the Monitoring Server container image is as follows:
+Note 3: The Dockerfile to make the Alarm-trigger container image is as follows:
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
 
-Note 4: The Monitoring Server container image is publically released on Docker Hub: 
+Note 4: The Alarm-trigger component container image is publically released on Docker Hub: 
 
-https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
+https://hub.docker.com/r/salmant/ul_alarm_trigger_container_image/
 
