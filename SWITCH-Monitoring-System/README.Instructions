@@ -1,6 +1,6 @@
 
 
-Instructions for the implementation of the monitoring system in the SWITCH project:
+Instructions for the implementation of the SWITCH Monitoring System:
 
 Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”
 
@@ -8,5 +8,17 @@ docker run -e MONITORING_SERVER="194.249.1.175" -p 8080:8080 -p 4242:4242 -p 424
 
 It takes almost one minute to run the Monitoring Server. The Monitoring Server should be running on a machine with enough memory, disk and CPU resources. This machine should address the Cassandra hardware requirements explained in the following page:
 https://wiki.apache.org/cassandra/CassandraHardware
+
+Step 2- Initiating the Monitoring Adapter on a machine such as “194.249.1.46”
+
+docker run -e MONITORING_SERVER="194.249.1.175" -e MONITORING_PREFIX="eu.switch.beia" -p 4242:4242 -p 4245:4245 -p 8125:8125/udp beia/monitoring_agent
+
+Step 3- Each container running in the service cluster includes two parts: “application instance” and “Monitoring Agent”. To make the Monitoring Agent, the StatsD protocol is used. Therefore, Monitoring Agents in the SWITCH project have been implemented through StatsD protocol available for many programming languages such as C/C++ and Python. There are too many examples on the Web to make a StatsD client: 
+https://github.com/etsy/statsd/wiki#client-implementations
+
+For instance, the following project is a Java-based StatsD client which can be downloaded: 
+https://github.com/tim-group/java-statsd-client
+
+The following code is a very simple example for the implementation of a Monitoring Agent:
 
 
