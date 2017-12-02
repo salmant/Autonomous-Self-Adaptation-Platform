@@ -52,9 +52,8 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 * subid is the id of Subscription Cluster
 * agentid represents the id of container instance
 * agentip represents the IP of container instance
-
 <br />Template: <br />`http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>`
-<br />Example: [http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247]  <br />
+<br />Example: `http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247`  <br />
 <br />Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57. <br />
 ***
 API2: To add a container instance to a Subscription Cluster.
