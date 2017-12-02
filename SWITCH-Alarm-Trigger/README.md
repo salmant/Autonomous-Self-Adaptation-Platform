@@ -9,11 +9,11 @@ There is a table (subscription_agents_table) in the TSDB to store the informatio
 
 
 In this example (subscription_agents_table.png): 
-  - The Subscription Cluster has the subid that is equal to "1ccba0cc92174ce788695cfc0a027b57"
-  - The first container instance has the agentid that is equal to "2f56a3593d2f459089685978e795a540"
-  - The first container instance has the agentip that is equal to "194.249.0.243"
-  - The second container instance has the agentid that is equal to "49476cf05aa24c8c9e7cde38154ca2a4"
-  - The second container instance has the agentip that is equal to "195.249.1.247"
+* The Subscription Cluster has the subid that is equal to "1ccba0cc92174ce788695cfc0a027b57"
+* The first container instance has the agentid that is equal to "2f56a3593d2f459089685978e795a540"
+* The first container instance has the agentip that is equal to "194.249.0.243"
+* The second container instance has the agentid that is equal to "49476cf05aa24c8c9e7cde38154ca2a4"
+* The second container instance has the agentip that is equal to "195.249.1.247"
 
 Having such information is necessary. Because, you can consider a threshold (e.g. CPU threshold) for a Subscription Cluster. For example, it is possible to specify a CPU-based auto-scaling policy that more containers will be launched if the average CPU utilization of the Subscription Cluster is over a threshold such as 80%. Therefore, to make the average, you should know which containers are in a Subscription Cluster. In the real-world use cases, the auto-scaling policies could be based on the response time of a given service. Therefore, we can also consider other thresholds for application-level metrics, if needed. 
 
@@ -106,14 +106,14 @@ https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/AlarmTrigger.ym
 If a metric reaches its associated threshold, the Alarm-Trigger will notify another two entities: the first one which is responsible for an adaptation action and the second one which is the SWITCH Web-based IDE (SIDE). In this situation, the Alarm-Trigger calls an API provided by the first entity and sends a POST notification as a JSON to this API. Similarly, at the same time, the Alarm-Trigger calls an API provided by the second entity and sends a POST notification as a JSON to this API as well.
 An example for the JSON notification is shown below: 
 
-{
+`{
 	"date":"2017-08-25",
 	"time":"11:30:00",
 	"metric_name":"cpuTotal",
 	"subid":"1ccba0cc92174ce788695cfc0a027b57",
 	"value":"91.0500021021063106",
 	"message_type":"warning"
-}
+}`
 
 Accordingly, before the Alarm-Trigger starts working, the API to receive notifications should be ready and available. However, if this API is not prepared when the Alarm-Trigger is working, this fact cannot stop the Alarm-Trigger to proceed ahead. When we would like to launch the Alarm-Trigger later, this API should be defined for this component as an input. 
 
@@ -124,10 +124,10 @@ docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e 
 ```
 
 As shown in the above command, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
-	- MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
-	- AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
-	- JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
-	- JSONAlertURLSIDEGUI: This is the URL prepared by the SWITCH Web-based IDE (SIDE). This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+* MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
+* AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
+* JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+* JSONAlertURLSIDEGUI: This is the URL prepared by the SWITCH Web-based IDE (SIDE). This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
 
 Note 1: If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
 
