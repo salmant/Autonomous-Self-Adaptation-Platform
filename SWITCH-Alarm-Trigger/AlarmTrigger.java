@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------
-// Authors: Salman taherizadeh
+// Authors: Salman Taherizadeh
 // ------------------------------------------------------------------------
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
