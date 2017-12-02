@@ -46,17 +46,17 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 ## Step 2- Using APIs to populate subscription_agents_table.
 
 **API1: To add a container instance to a Subscription Cluster.**
-<br />Method: GET
-<br />Description: Insert a row into the table which represents Subscription Clusters.
+<br />**_Method:_** GET
+<br />**_Description:_** Insert a row into the table which represents Subscription Clusters.
 
-<br />Input parameters: subid, agentid and agentip.
+<br />**_Input parameters:_** subid, agentid and agentip.
 * subid is the id of Subscription Cluster
 * agentid represents the id of container instance
 * agentip represents the IP of container instance
 
-<br />Template: <br />`http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>`
-<br />Example: <br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c/195.249.1.247`
-<br />Result: 49476cf05aa24c8c9e7cde38154c was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+<br />**_Template:_** <br />`http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>`
+<br />**_Example:_** <br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c/195.249.1.247`
+<br />**_Result:_** 49476cf05aa24c8c9e7cde38154c was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
 **API2: To add a container instance to a Subscription Cluster.**
 <br />Method: POST
