@@ -2,9 +2,20 @@
 
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
 
-There is a table in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example, there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid". 
+There is a table in the TSDB to store the information about Subscription Clusters. By this table, we can find out that a Subscription Cluster includes which containers. Each Subscription Cluster should have a unique id which is called "subid". As shown in the following example (subscription_agents_table.png), there are two container instances which belong to one Subscription Cluster. Because, these two containers have the same "subid". 
+https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/subscription_agents_table.png
+
+In this example (subscription_agents_table.png): 
+  - The Subscription Cluster has the subid that is equal to "1ccba0cc92174ce788695cfc0a027b57"
+  - The first container instance has the agentid that is equal to "2f56a3593d2f459089685978e795a540"
+  - The first container instance has the agentip that is equal to "194.249.0.243"
+  - The second container instance has the agentid that is equal to "49476cf05aa24c8c9e7cde38154ca2a4"
+  - The second container instance has the agentip that is equal to "195.249.1.247"
+
+Having such information is necessary. Because, you can consider a threshold (e.g. CPU threshold) for a Subscription Cluster. For example, it is possible to specify a CPU-based auto-scaling policy that more containers will be launched if the average CPU utilization of the Subscription Cluster is over a threshold such as 80%. Therefore, to make the average, you should know which containers are in a Subscription Cluster. In the real-world use cases, the auto-scaling policies could be based on the response time of a given service. Therefore, we can also consider other thresholds for application-level metrics, if needed. 
 
 
+Instructions for the utilisation of Alarm-Trigger component in the SWITCH project:
 
 Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”
 
