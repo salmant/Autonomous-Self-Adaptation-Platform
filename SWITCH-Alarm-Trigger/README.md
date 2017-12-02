@@ -1,4 +1,4 @@
-Author: Salman Taherizadeh
+The Alarm-Trigger component is a rule-based component which checks the incoming monitoring data and notifies other entities such as the Self-Adapter and the SWITCH Web-based IDE (SIDE) when the system is going to experience abnormal behaviour, or in other words, when any a metric reaches its associated threshold. 
 ***
 
 A Subscription Cluster represents a group of containers that are providing together the same service. This concept comes when the SWITCH solution performs the horizontal scalability of running container instances. Therefore, for example, if two running container instances are providing the same service, these two containers make one Subscription Cluster. In other words, these two containers belong to a same Subscription Cluster.
