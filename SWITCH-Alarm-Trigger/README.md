@@ -59,41 +59,41 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 <br />**_Result:_** 49476cf05aa24c8c9e7cde38154c was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
 **API2: To add a container instance to a Subscription Cluster.**
-<br />Method: POST
-<br />Description: Insert a row into the table which represents Subscription Clusters.
+<br />**_Method:_** POST
+<br />**_Description:_** Insert a row into the table which represents Subscription Clusters.
 
-<br />Input parameters: subid, agentid and agentip.
+<br />**_Input parameters:_** subid, agentid and agentip.
 * subid is the id of Subscription Cluster
 * agentid represents the id of container instance
 * agentip represents the IP of container instance
 
-<br />Template: <br />`curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>`
-<br />Example: <br />`curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c/195.249.1.247`
-<br />Result: 49476cf05aa24c8c9e7cde38154c was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+<br />**_Template:_** <br />`curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>`
+<br />**_Example:_** <br />`curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c/195.249.1.247`
+<br />**_Result:_** 49476cf05aa24c8c9e7cde38154c was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
 **API3: To delete a container instance from a Subscription Cluster.**
-<br />Method: GET
-<br />Description: Eliminate a row from the table which represents Subscription Clusters.
+<br />**_Method:_** GET
+<br />**_Description:_** Eliminate a row from the table which represents Subscription Clusters.
 
-<br />Input parameters: subid and agentid.
+<br />**_Input parameters:_** subid and agentid.
 * subid is the id of Subscription Cluster
 * agentid represents the id of container instance
 
-<br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>`
-<br />Example: <br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c`
-<br />Result: 49476cf05aa24c8c9e7cde38154c was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+<br />**_Template:_** <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>`
+<br />**_Example:_** <br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c`
+<br />**_Result:_** 49476cf05aa24c8c9e7cde38154c was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
 **API4: To delete a container instance from a Subscription Cluster.**
-<br />Method: POST
-<br />Description: Eliminate a row from the table which represents Subscription Clusters.
+<br />**_Method:_** POST
+<br />**_Description:_** Eliminate a row from the table which represents Subscription Clusters.
 
-<br />Input parameters: subid and agentid.
+<br />**_Input parameters:_** subid and agentid.
 * subid is the id of Subscription Cluster
 * agentid represents the id of container instance
 
-<br />Template: <br />`curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>`
-<br />Example: <br />`curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c`
-<br />Result: 49476cf05aa24c8c9e7cde38154c was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+<br />**_Template:_** <br />`curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>`
+<br />**_Example:_** <br />`curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154c`
+<br />**_Result:_** 49476cf05aa24c8c9e7cde38154c was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 
 ## Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
 To this end, the YAML file should be accessible via a URL such as `http://194.249.1.72:5000/AlarmTrigger.yml`. The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
