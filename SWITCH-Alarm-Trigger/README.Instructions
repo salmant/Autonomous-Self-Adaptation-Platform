@@ -18,7 +18,7 @@ Having such information is necessary. Because, you can consider a threshold (e.g
 https://github.com/salmant/ASAP/tree/master/SWITCH-Monitoring-System
 
 
-Instructions for the utilisation of Alarm-Trigger component in the SWITCH project:
+Instructions for the utilisation of the Alarm-Trigger component in the SWITCH project:
 
 Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
 
