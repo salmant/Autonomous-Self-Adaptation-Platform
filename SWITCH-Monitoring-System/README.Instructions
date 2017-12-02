@@ -26,9 +26,9 @@ The following code is a very simple example for the implementation of a Monitori
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/MonitoringAgent.java
 
-Note 1: Implementing a StatsD client is very simple. After a quick skim through the above example, you would easily find out how to write your own code based on whatever programming language.
+Note 1: Implementing a StatsD client is very simple. After a quick skim through the above example (MonitoringAgent.java), you would easily find out how to write your own code based on whatever programming language.
 
-Note 2:  Different parameters have been defined in this code. Therefore, you should define these parameters as needed.
+Note 2:  Different parameters have been defined in this code (MonitoringAgent.java). Therefore, you should define these parameters as needed.
   - MONITORING_PREFIX
   - Monitoring Adapter's IP address (MONITORING_ADAPTER)
   - Container's IP address (DockerHost_IP) which is called agentip in the Monitoring System
@@ -37,11 +37,11 @@ Note 2:  Different parameters have been defined in this code. Therefore, you sho
   - <metric_name>
   - <units> which represents the scale of metric. 
 
-Note 3: As shown in the above example, UUID has been used for the unique identification of containers which is called agentid in the Monitoring System. In the SWITCH platform, agentid that represents the "CONTAINER ID" can be defined by Docker. 
+Note 3: As shown in the above example (MonitoringAgent.java), UUID has been used for the unique identification of containers which is called agentid in the Monitoring System. In the SWITCH platform, agentid that represents the "CONTAINER ID" can be defined by Docker. 
 
-Note 4:  The measured value (e.g.  value1 or value2 presented in the example) is a “long” number. Therefore, if the raw value is a “flout” number, you should multiply that number by 10^X in order to make it “Long”. 
+Note 4:  The measured value, e.g. value1 or value2 presented in the example (MonitoringAgent.java), is a “long” number. Therefore, if the raw value is a “flout” number, you should multiply that number by 10^X in order to make it “Long”. 
 
-Step 4- Then you are able to check if the values sent by the StatsD client (Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
+Step 4- Then, you can check if the values sent by the StatsD client (the Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
 
 - To get the "CONTAINER_ID" of the containerized Monitoring Server
 docker ps
