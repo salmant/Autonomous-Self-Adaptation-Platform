@@ -10,6 +10,14 @@ It takes almost one minute to run the Monitoring Server. The Monitoring Server s
 
 https://wiki.apache.org/cassandra/CassandraHardware
 
+Note 1: the Dockerfile to make the Monitoring Server container image is as follows:
+
+https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
+
+Note 2: The Monitoring Server container image is publically released on Docker Hub: 
+
+https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
+
 Step 2- Initiating the Monitoring Adapter on a machine such as “194.249.1.46”
 
 docker run -e MONITORING_SERVER="194.249.1.175" -e MONITORING_PREFIX="eu.switch.beia" -p 4242:4242 -p 4245:4245 -p 8125:8125/udp beia/monitoring_agent
