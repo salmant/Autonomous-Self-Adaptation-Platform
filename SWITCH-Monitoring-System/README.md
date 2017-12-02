@@ -1,7 +1,3 @@
-// ------------------------------------------------------------------------
-// Authors: Salman Taherizadeh
-// ------------------------------------------------------------------------
-
 Instructions for the implementation of the SWITCH Monitoring System:
 
 ## Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
@@ -58,7 +54,7 @@ Note 3: As shown in the above example (MonitoringAgent.java), UUID has been used
 
 Note 4:  The measured value, e.g. value1 or value2 presented in the example (MonitoringAgent.java), is a “long” number. Therefore, if the raw value is a “flout” number, you should multiply that number by 10^X in order to make it “Long”. 
 
-## Step 4- Manupulating data stored in the Cassandra TSDB.
+## Step 4- Manipulating data stored in the Cassandra TSDB.
 Then, you can check if the values sent by the StatsD client (the Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
 
 - To get the "CONTAINER_ID" of the containerized Monitoring Server:
