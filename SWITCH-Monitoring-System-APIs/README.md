@@ -7,12 +7,7 @@ The Monitoring System allows all external entities to access the monitoring info
 <br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/`
 <br />Example:	<br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/`
 <br />Result:
-{"agents":[
-{"agentID":"fac87442ef9b4b7c884cb112614ed2bd","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"},
-{"agentID":"2dc0712372f74c2a91cd94efa3945023","agentIP":"194.249.1.72","status":"UP","agentName":"194.249.1.72"},
-{"agentID":"1937e52f34e941a0977a455830f4f94a","agentIP":"111.201.202.345","status":"TERMINATED","agentName":"111.201.202.345"},
-{"agentID":"869706bffc8242ffbcb44f3d3dc048f2","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"}
-]}
+{"agents":[{"agentID":"fac87442ef9b4b7c884cb112614ed2bd","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"},{"agentID":"2dc0712372f74c2a91cd94efa3945023","agentIP":"194.249.1.72","status":"UP","agentName":"194.249.1.72"},{"agentID":"1937e52f34e941a0977a455830f4f94a","agentIP":"111.201.202.345","status":"TERMINATED","agentName":"111.201.202.345"},{"agentID":"869706bffc8242ffbcb44f3d3dc048f2","agentIP":"200.201.202.203","status":"TERMINATED","agentName":"200.201.202.203"}]}
 ***
 **API2: Fetching the list of metrics being monitored for a specified container.**
 <br />Method: GET
@@ -21,14 +16,7 @@ The Monitoring System allows all external entities to access the monitoring info
 <br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/<agentID>/availableMetrics`
 <br />Example: <br />`http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/2dc0712372f74c2a91cd94efa3945023/availableMetrics`
 <br />Result: 
-{"metrics":[
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:arch","name":"arch","units":"","type":"STRING","group":"StaticInfo"},
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:btime","name":"btime","units":"","type":"STRING","group":"StaticInfo"},
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuNum","name":"cpuNum","units":"","type":"STRING","group":"StaticInfo"},
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal","name":"cpuTotal","units":"percent","type":"DOUBLE","group":"CPU"},
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:memTotal","name":"memTotal","units":"KB","type":"DOUBLE","group":"Memory"},
-{"metricID":"2dc0712372f74c2a91cd94efa3945023:os","name":"os","units":"","type":"STRING","group":"StaticInfo"}
-]}
+{"metrics":[{"metricID":"2dc0712372f74c2a91cd94efa3945023:arch","name":"arch","units":"","type":"STRING","group":"StaticInfo"},{"metricID":"2dc0712372f74c2a91cd94efa3945023:btime","name":"btime","units":"","type":"STRING","group":"StaticInfo"},{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuNum","name":"cpuNum","units":"","type":"STRING","group":"StaticInfo"},{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal","name":"cpuTotal","units":"percent","type":"DOUBLE","group":"CPU"},{"metricID":"2dc0712372f74c2a91cd94efa3945023:memTotal","name":"memTotal","units":"KB","type":"DOUBLE","group":"Memory"},{"metricID":"2dc0712372f74c2a91cd94efa3945023:os","name":"os","units":"","type":"STRING","group":"StaticInfo"}]}
 ***
 **API3: Fetching the last value of a metric.**
 <br />Method: GET
@@ -52,7 +40,7 @@ The Monitoring System allows all external entities to access the monitoring info
 <br />Method: GET
 <br />Description: This API gives all values of a metric specified via metricID for a certain period. In other words, values measured during a certain period of time (between "firstTime" and "secondTime").
 <br />Input parameters: MetricID (which represents  “agentid”+“metric_name”), firstTime and secondTime
-<br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?firstTime=<firstTim>&secondTime=<secondTime>
+<br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?firstTime=<firstTim>&secondTime=<secondTime>`
 <br />Example: <br />`http://35.187.127.38:8080/JCatascopia-Web/restAPI/metrics/5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal?firstTime=2017-11-23%2013:10:00&secondTime=2017-11-23%2013:11:04`
 <br />Result: 
 {"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal", "values":[{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.443548387096774","timestamp":"13:10:49"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.37525354969574","timestamp":"13:10:19"}]}`
@@ -61,7 +49,7 @@ The Monitoring System allows all external entities to access the monitoring info
 <br />Method: GET
 <br />Description: This API gives the last "n" values of a metric specified via metricID.
 <br />Input parameters: MetricID (which represents  “agentid”+“metric_name”), date (eventDate), n (how many of the last measurements)
-<br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?eventDate=<eventDate>&lastRows=<n>
+<br />Template: <br />`http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?eventDate=<eventDate>&lastRows=<n>`
 <br />Example: <br />`http://35.187.127.38:8080/JCatascopia-Web/restAPI/metrics/5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal?eventDate=2017-12-01&lastRows=10`
 <br />Result: 
 {"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal", "values":[{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.549949545913218","timestamp":"23:59:51"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"4.919678714859438","timestamp":"23:59:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"6.633165829145728","timestamp":"23:59:01"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.421686746987952","timestamp":"23:58:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.639476334340383","timestamp":"23:58:11"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.94758064516129","timestamp":"23:57:51"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"4.824120603015075","timestamp":"23:57:21"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"6.55241935483871","timestamp":"23:57:01"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.840886203423969","timestamp":"23:56:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"7.388663967611336","timestamp":"23:56:01"}]}`
