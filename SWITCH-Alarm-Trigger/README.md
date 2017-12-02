@@ -45,9 +45,7 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
 ## Step 2- Using APIs to populate subscription_agents_table.
 
-
-***
-API1: To add a container instance to a Subscription Cluster.
+API1: To add a container instance to a Subscription Cluster.<br />
 %%%%%%%%%%%%%%%%%
 Method: GET
 %%%%%%%%%%%%%%%%%
@@ -63,9 +61,6 @@ Template: http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscr
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-***
-
-
 ***
 API2: To add a container instance to a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
@@ -84,9 +79,6 @@ Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
-
-
-***
 API3: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: GET
@@ -103,9 +95,6 @@ Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscrip
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
-
-
-***
 API4: To delete a container instance from a Subscription Cluster.
 %%%%%%%%%%%%%%%%%
 Method: POST
@@ -121,7 +110,6 @@ Template: curl -H "Content-Type: application/json" -X POST http://<MONITORING_SE
 Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4
 %%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
-***
 
 ## Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
 To this end, the YAML file should be accessible via a URL such as "http://194.249.1.72:5000/AlarmTrigger.yml". The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
