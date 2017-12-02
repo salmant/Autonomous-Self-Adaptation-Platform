@@ -138,15 +138,15 @@ An example for the JSON notification is shown below:
 
 Accordingly, before the Alarm-Trigger starts working, the API to receive notifications should be ready and available. However, if this API is not prepared when the Alarm-Trigger is working, this fact cannot stop the Alarm-Trigger to proceed ahead. When we would like to launch the Alarm-Trigger later, this API should be defined for this component as an input. 
 
-Step 5- Launch the Alarm-Trigger on a machine such as "211.7.78.63".
+Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63".
 
 docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e MONITORING_SERVER="194.249.1.175" -e JSONAlertURL="https://gurujsonrpc.appspot.com/guru" -e JSONAlertURLSIDEGUI="https://gurujsonrpc.appspot.com/guru" -p 4444:8080 salmant/ul_alarm_trigger_container_image
 
 As shown, if we would like to run the Alarm-Trigger component, different parameters should be set for the following environmental variables: 
-●	MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
-●	AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
-●	JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
-●	JSONAlertURLSIDEGUI: This is the URL prepared by the SIDE GUI. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+	- MONITORING_SERVER: This is the IP address of the Monitoring Server explained in Step 1.
+	- AlarmTriggerYMLURL: This is the URL to fetch the YAML file explained in Step 3.
+	- JSONAlertURL: This is the URL prepared by an entity which is responsible for an adaptation action. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
+	- JSONAlertURLSIDEGUI: This is the URL prepared by the SIDE GUI. This API is used to receive POST notifications (sent by the Alarm-Trigger) if metrics reach the thresholds explained in Step 4.
 
 If the Alarm-Trigger would be running, an API has been prepared to fetch all notifications raised so far. This API is not completely necessary, since the Alarm-Trigger has sent these notifications earlier to other entities explained in previous step. However, it could have its own functionalities. 
 
