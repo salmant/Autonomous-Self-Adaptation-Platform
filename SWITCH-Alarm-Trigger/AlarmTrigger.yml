@@ -1,0 +1,37 @@
+#####################################
+metric1:
+    type: container_level
+    metric_group_name: CPUProbe
+    subid: "1ccba0cc92174ce788695cfc0a027b57"
+    properties:
+        metric_name: cpuTotal
+        data_type: double
+        action: average
+        units: percent
+        period: 20
+    range:
+        minimum: 0.0
+        maximum: 100.0
+    alarm:
+        warning:
+            warning_value: 80.0
+            warning_operator: ">="
+#####################################
+metric2:
+    type: container_level
+    metric_group_name: MemoryProbe
+    subid: "1ccba0cc92174ce788695cfc0a027b57"
+    properties:
+        metric_name: memTotal
+        data_type: double
+        action: average
+        units: percent
+        period: 20
+    range:
+        minimum: 0.0
+        maximum: 100.0
+    alarm:
+        warning:
+            warning_value: 80.0
+            warning_operator: ">="
+#####################################
