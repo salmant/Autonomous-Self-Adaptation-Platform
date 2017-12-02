@@ -23,7 +23,7 @@ https://github.com/salmant/ASAP/tree/master/SWITCH-Monitoring-System
 
 Instructions for the utilisation of the Alarm-Trigger component in the SWITCH project:
 
-Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
+## Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
 
 ```
 docker run -e MONITORING_SERVER="194.249.1.175" -p 8080:8080 -p 4242:4242 -p 4245:4245 -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 salmant/ul_monitoring_server_container_image:latest
@@ -43,7 +43,7 @@ Note 3: The Monitoring Server container image is publically released on Docker H
 
 https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
-Step 2- Using APIs to populate subscription_agents_table.
+## Step 2- Using APIs to populate subscription_agents_table.
 
 
 ***
@@ -123,14 +123,14 @@ Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ***
 
-Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
+## Step 3- Providing the YAML file via a URL as input for the Alarm-Trigger. 
 To this end, the YAML file should be accessible via a URL such as "http://194.249.1.72:5000/AlarmTrigger.yml". The Alarm-Trigger component will fetch this input and then start working. This URL can be everything, and hence the Alarm-Trigger is able to fetch the YAML file through this URL. 
 
 A template for the YAML file can be seen here: 
 
 https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/AlarmTrigger.yml
 
-Step 4- Preparing an API to receive notifications sent by the Alarm-Trigger component if any metric (defined in the YAML file) would be violated.  
+## Step 4- Preparing an API to receive notifications sent by the Alarm-Trigger component if any metric (defined in the YAML file) would be violated.  
 If a metric reaches its associated threshold, the Alarm-Trigger will notify another two entities: the first one which is responsible for an adaptation action and the second one which is the SWITCH Web-based IDE (SIDE). In this situation, the Alarm-Trigger calls an API provided by the first entity and sends a POST notification as a JSON to this API. Similarly, at the same time, the Alarm-Trigger calls an API provided by the second entity and sends a POST notification as a JSON to this API as well.
 An example for the JSON notification is shown below: 
 
@@ -145,7 +145,7 @@ An example for the JSON notification is shown below:
 
 Accordingly, before the Alarm-Trigger starts working, the API to receive notifications should be ready and available. However, if this API is not prepared when the Alarm-Trigger is working, this fact cannot stop the Alarm-Trigger to proceed ahead. When we would like to launch the Alarm-Trigger later, this API should be defined for this component as an input. 
 
-Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63". 
+## Step 5- Launching the Alarm-Trigger on a machine such as "211.7.78.63". 
 
 ```
 docker run -e AlarmTriggerYMLURL="http://194.249.1.72:5000/AlarmTrigger.yml" -e MONITORING_SERVER="194.249.1.175" -e JSONAlertURL="https://gurujsonrpc.appspot.com/guru" -e JSONAlertURLSIDEGUI="https://gurujsonrpc.appspot.com/guru" -p 4444:8080 salmant/ul_alarm_trigger_container_image:latest
