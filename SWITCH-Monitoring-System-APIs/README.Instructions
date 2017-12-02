@@ -55,11 +55,17 @@ Result:
 
 ###################################################################
 API3: Fetching the last value of a metric.
+%%%%%%%%%%%%%%%%%
 Method: GET
+%%%%%%%%%%%%%%%%%
 Description: This API gives the last value of a metric specified via metricID.
+%%%%%%%%%%%%%%%%%
 Input parameters: MetricID (which represents  “agentid”+“metric_name”)
+%%%%%%%%%%%%%%%%%
 Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>
+%%%%%%%%%%%%%%%%%
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/metrics/2dc0712372f74c2a91cd94efa3945023:cpuTotal
+%%%%%%%%%%%%%%%%%
 Result:
 {"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal", "values":[{"metricID":"2dc0712372f74c2a91cd94efa3945023:cpuTotal","name":"cpuTotal","units":"percent","type":"DOUBLE","group":"CPU","value":"7950","timestamp":"14:19:56"}]}
 ###################################################################
@@ -67,11 +73,17 @@ Result:
 
 ###################################################################
 API4: Fetching the list of containers in a Subscription Cluster
+%%%%%%%%%%%%%%%%%
 Method: GET
+%%%%%%%%%%%%%%%%%
 Description: Each Subscription Cluster has a unique id which is called "subid". This API gives the list of containers (their ID (agentID) and their IP (agentIP)) which are the members of a Subscription Cluster specified via a given ID (subid).
+%%%%%%%%%%%%%%%%%
 Input parameters: subid
+%%%%%%%%%%%%%%%%%
 Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/subscriptions/<subid>/agents
+%%%%%%%%%%%%%%%%%
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/subscriptions/1ccba0cc92174ce788695cfc0a027b57/agents
+%%%%%%%%%%%%%%%%%
 Result: 
 {"agents":[{"agentID":"2dc0712372f74c2a91cd94efa3945023","agentIP":"194.249.1.72"}]}
 ###################################################################
@@ -79,23 +91,35 @@ Result:
 
 ###################################################################
 API5: Fetching the values for a specific metric taken from the first time to the second time.
+%%%%%%%%%%%%%%%%%
 Method: GET
+%%%%%%%%%%%%%%%%%
 Description: This API gives all values of a metric specified via metricID for a certain period. In other words, values measured during a certain period of time (between "firstTime" and "secondTime").
+%%%%%%%%%%%%%%%%%
 Input parameters: MetricID (which represents  “agentid”+“metric_name”), firstTime and secondTime
+%%%%%%%%%%%%%%%%%
 Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?firstTime=<firstTim>&secondTime=<secondTime>
+%%%%%%%%%%%%%%%%%
 Example: http://35.187.127.38:8080/JCatascopia-Web/restAPI/metrics/5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal?firstTime=2017-11-23%2013:10:00&secondTime=2017-11-23%2013:11:04
+%%%%%%%%%%%%%%%%%
 Result: 
 {"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal", "values":[{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.443548387096774","timestamp":"13:10:49"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.37525354969574","timestamp":"13:10:19"}]}
 ###################################################################
 
 
 ###################################################################
-API5: Fetching the last "n" values for a specific metric that is being monitored.
+API6: Fetching the last "n" values for a specific metric that is being monitored.
+%%%%%%%%%%%%%%%%%
 Method: GET
+%%%%%%%%%%%%%%%%%
 Description: This API gives the last "n" values of a metric specified via metricID.
+%%%%%%%%%%%%%%%%%
 Input parameters: MetricID (which represents  “agentid”+“metric_name”), date (eventDate), n (how many of the last measurements)
+%%%%%%%%%%%%%%%%%
 Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/metrics/<metricID>?eventDate=<eventDate>&lastRows=<n>
+%%%%%%%%%%%%%%%%%
 Example: http://35.187.127.38:8080/JCatascopia-Web/restAPI/metrics/5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal?eventDate=2017-12-01&lastRows=10
+%%%%%%%%%%%%%%%%%
 Result: 
 {"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal", "values":[{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.549949545913218","timestamp":"23:59:51"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"4.919678714859438","timestamp":"23:59:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"6.633165829145728","timestamp":"23:59:01"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.421686746987952","timestamp":"23:58:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.639476334340383","timestamp":"23:58:11"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.94758064516129","timestamp":"23:57:51"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"4.824120603015075","timestamp":"23:57:21"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"6.55241935483871","timestamp":"23:57:01"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"5.840886203423969","timestamp":"23:56:31"},{"metricID":"5dd5e346e5b243a0a783b2d225a6b0f8:cpuTotal","name":"cpuTotal","units":"%","type":"DOUBLE","group":"CPU","value":"7.388663967611336","timestamp":"23:56:01"}]}
 ###################################################################
