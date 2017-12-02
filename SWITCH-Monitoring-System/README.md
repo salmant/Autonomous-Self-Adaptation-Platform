@@ -4,7 +4,7 @@
 
 Instructions for the implementation of the SWITCH Monitoring System:
 
-## Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”
+## Step 1- Initiating the Monitoring Server on a machine such as “194.249.1.175”.
 
 ```
 docker run -e MONITORING_SERVER="194.249.1.175" -p 8080:8080 -p 4242:4242 -p 4245:4245 -p 7199:7199 -p 7000:7000 -p 7001:7001 -p 9160:9160 -p 9042:9042 -p 8012:8012 -p 61621:61621 salmant/ul_monitoring_server_container_image:latest
@@ -24,13 +24,14 @@ Note 3: The Monitoring Server container image is publically released on Docker H
 
 https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 
-## Step 2- Initiating the Monitoring Adapter on a machine such as “194.249.1.46”
+## Step 2- Initiating the Monitoring Adapter on a machine such as “194.249.1.46”.
 
 ```
 docker run -e MONITORING_SERVER="194.249.1.175" -e MONITORING_PREFIX="eu.switch.beia" -p 4242:4242 -p 4245:4245 -p 8125:8125/udp beia/monitoring_agent
 ```
 
-## Step 3- Each container running in the service cluster includes two parts: “application instance” and “Monitoring Agent”. To make the Monitoring Agent, the StatsD protocol is used. Therefore, Monitoring Agents in the SWITCH project have been implemented through StatsD protocol available for many programming languages such as C/C++ and Python. There are too many examples on the Web to make a StatsD client: 
+## Step 3- Implementing the Monitoring Agent based on StatsD.
+Each container running in the service cluster includes two parts: “application instance” and “Monitoring Agent”. To make the Monitoring Agent, the StatsD protocol is used. Therefore, Monitoring Agents in the SWITCH project have been implemented through StatsD protocol available for many programming languages such as C/C++ and Python. There are too many examples on the Web to make a StatsD client: 
 
 https://github.com/etsy/statsd/wiki#client-implementations
 
@@ -57,7 +58,8 @@ Note 3: As shown in the above example (MonitoringAgent.java), UUID has been used
 
 Note 4:  The measured value, e.g. value1 or value2 presented in the example (MonitoringAgent.java), is a “long” number. Therefore, if the raw value is a “flout” number, you should multiply that number by 10^X in order to make it “Long”. 
 
-## Step 4- Then, you can check if the values sent by the StatsD client (the Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
+## Step 4- Manupulating data stored in the Cassandra TSDB.
+Then, you can check if the values sent by the StatsD client (the Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
 
 - To get the "CONTAINER_ID" of the containerized Monitoring Server:
 `docker ps`
