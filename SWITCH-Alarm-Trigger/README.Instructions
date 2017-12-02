@@ -41,15 +41,80 @@ Step 2- Using APIs to populate subscription_agents_table.
 To insert a row in this table, the following APIs can be used: 
 ###################################################################
 Endpoint: To add a container instance to a Subscription Cluster.
+%%%%%%%%%%%%%%%%%
 Method: GET
-Description: Insert a row into the table which represents Subscription Clusters
+%%%%%%%%%%%%%%%%%
+Description: Insert a row into the table which represents Subscription Clusters.
+%%%%%%%%%%%%%%%%%
 Input parameters: subid, agentid and agentip.
   - subid is the id of Subscription Cluster
   - agentid represents the id of container instance
   - agentip represents the IP of container instance
+%%%%%%%%%%%%%%%%%
 Template: http://<MONITORING_SERVER >:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>
+%%%%%%%%%%%%%%%%%
 Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
+%%%%%%%%%%%%%%%%%
 Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
 ###################################################################
+
+
+###################################################################
+Endpoint: To add a container instance to a Subscription Cluster.
+%%%%%%%%%%%%%%%%%
+Method: POST
+%%%%%%%%%%%%%%%%%
+Description: Insert a row into the table which represents Subscription Clusters.
+%%%%%%%%%%%%%%%%%
+Input parameters: subid, agentid and agentip.
+  - subid is the id of Subscription Cluster
+  - agentid represents the id of container instance
+  - agentip represents the IP of container instance
+%%%%%%%%%%%%%%%%%
+Template: curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/<subid>/<agentid>/<agentip>
+%%%%%%%%%%%%%%%%%
+Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/subscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4/195.249.1.247
+%%%%%%%%%%%%%%%%%
+Result: 49476cf05aa24c8c9e7cde38154ca2a4 was inserted in the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+###################################################################
+
+
+###################################################################
+Endpoint: To delete a container instance from a Subscription Cluster.
+%%%%%%%%%%%%%%%%%
+Method: GET
+%%%%%%%%%%%%%%%%%
+Description: Eliminate a row from the table which represents Subscription Clusters.
+%%%%%%%%%%%%%%%%%
+Input parameters: subid and agentid.
+  - subid is the id of Subscription Cluster
+  - agentid represents the id of container instance
+%%%%%%%%%%%%%%%%%
+Template: http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>
+%%%%%%%%%%%%%%%%%
+Example: http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4
+%%%%%%%%%%%%%%%%%
+Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+###################################################################
+
+
+###################################################################
+Endpoint: To delete a container instance from a Subscription Cluster.
+%%%%%%%%%%%%%%%%%
+Method: POST
+%%%%%%%%%%%%%%%%%
+Description: Eliminate a row from the table which represents Subscription Clusters.
+%%%%%%%%%%%%%%%%%
+Input parameters: subid and agentid.
+  - subid is the id of Subscription Cluster
+  - agentid represents the id of container instance
+%%%%%%%%%%%%%%%%%
+Template: curl -H "Content-Type: application/json" -X POST http://<MONITORING_SERVER>:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/<subid>/<agentid>
+%%%%%%%%%%%%%%%%%
+Example: curl -H "Content-Type: application/json" -X POST http://194.249.1.175:8080/JCatascopia-Web/restAPI/agents/deleteSubscriptionAgentTable/1ccba0cc92174ce788695cfc0a027b57/49476cf05aa24c8c9e7cde38154ca2a4
+%%%%%%%%%%%%%%%%%
+Result: 49476cf05aa24c8c9e7cde38154ca2a4 was deleted from the Virtual Cluster 1ccba0cc92174ce788695cfc0a027b57.
+###################################################################
+
 
 
