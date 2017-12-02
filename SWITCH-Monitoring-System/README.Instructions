@@ -53,15 +53,15 @@ Note 4:  The measured value, e.g. value1 or value2 presented in the example (Mon
 
 Step 4- Then, you can check if the values sent by the StatsD client (the Monitoring Agent) are stored in the TSDB. To this end, on the machine where the Monitoring Server is running (e.g. “194.249.1.175”), the following commands should be executed step-by-step:
 
-- To get the "CONTAINER_ID" of the containerized Monitoring Server
+- To get the "CONTAINER_ID" of the containerized Monitoring Server:
 docker ps
 
-- To log in the running container
+- To log in the running container:
 docker exec -it "CONTAINER_ID" bash
 such as:
 docker exec -it ff3ab1400aa0 bash
 
-- To start the CQL interactive terminal for Apache Cassandra
+- To start the CQL interactive terminal for Apache Cassandra:
 cqlsh "Monitoring_Server_IP" -u catascopia_user -p catascopia_pass
 such as:
 cqlsh 194.249.1.175 -u catascopia_user -p catascopia_pass
