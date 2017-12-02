@@ -160,7 +160,7 @@ http://<AlarmTrigger_IP>:<Port>/emptylogfile.jsp
 
 Note 3: The Dockerfile to make the Alarm-trigger container image is as follows:
 
-https://github.com/salmant/ASAP/blob/master/SWITCH-Monitoring-System/Dockerfile.centos
+https://github.com/salmant/ASAP/blob/master/SWITCH-Alarm-Trigger/Dockerfile.centos
 
 Note 4: The Alarm-trigger component container image is publically released on Docker Hub: 
 
