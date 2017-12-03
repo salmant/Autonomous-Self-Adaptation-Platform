@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------
-// Authors: Salman Taherizadeh
+// Author: Salman Taherizadeh
 // ------------------------------------------------------------------------
 package com.timgroup.statsd;
 import com.timgroup.statsd.StatsDClient;
