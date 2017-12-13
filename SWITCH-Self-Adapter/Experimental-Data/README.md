@@ -1,4 +1,4 @@
-`MonitoredData1-5.csv` includes seven columns as follows:
+`MonitoredData1-5.csv` includes seven columns as follows: 
 1. Date
 2. Timestamp
 3. Average CPU usage of the cluster
