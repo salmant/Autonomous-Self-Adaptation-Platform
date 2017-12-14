@@ -6,7 +6,7 @@ ARG TOMCAT_VERSION=7.0.55
 ARG TOMCAT_DIR=/usr/share
 
 
-# Install JCatascopia Monitoring Server, Tomcat and JCatascopia-Web servlet. Configure Cassandra 
+# Install JCatascopia monitoring server, Tomcat & JCatascopia-Web servlet. Configure Cassandra 
 
 RUN yum install -y yum-plugin-ovl
 RUN yum install -y wget tar unzip
@@ -16,10 +16,12 @@ tar xz -C /
 RUN wget -O - http://archive.apache.org/dist/tomcat/tomcat-7/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | \
 tar xz -C $TOMCAT_DIR/
 RUN mv $TOMCAT_DIR/apache-tomcat-$TOMCAT_VERSION $TOMCAT_DIR/tomcat/
-RUN wget -P $TOMCAT_DIR/tomcat/webapps https://www.dropbox.com/s/wgj9zagy2dblfta/JCatascopia-Web.war
+RUN wget -P $TOMCAT_DIR/tomcat/webapps https://www.dropbox.com/s/htlzpb4d2v38vnv/JCatascopia-Web.war
 RUN unzip $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web.war -d $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web
 RUN mkdir -p /usr/share/tomcat/webapps/JCatascopia-Web/WEB-INF
 RUN sed -i 's/securerandom.source=file:\/dev\/random/securerandom.source=file:\/dev\/.\/urandom/g' /usr/lib/jvm/jre/lib/security/java.security 
+
+RUN sed -i 's/NOTE: An SSI Servlet is also available as an alternative SSI/--><filter>    <filter-name>CorsFilter<\/filter-name>    <filter-class>org.apache.catalina.filters.CorsFilter<\/filter-class><\/filter><filter-mapping>    <filter-name>CorsFilter<\/filter-name>    <url-pattern>\/*<\/url-pattern><\/filter-mapping><!--/g' $TOMCAT_DIR/tomcat/conf/web.xml
 
 COPY start.sh /root/start.sh
 RUN chmod 777 /root/start.sh
