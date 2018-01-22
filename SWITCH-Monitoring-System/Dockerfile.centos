@@ -16,7 +16,7 @@ tar xz -C /
 RUN wget -O - http://archive.apache.org/dist/tomcat/tomcat-7/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz | \
 tar xz -C $TOMCAT_DIR/
 RUN mv $TOMCAT_DIR/apache-tomcat-$TOMCAT_VERSION $TOMCAT_DIR/tomcat/
-RUN wget -P $TOMCAT_DIR/tomcat/webapps https://www.dropbox.com/s/htlzpb4d2v38vnv/JCatascopia-Web.war
+RUN wget -P $TOMCAT_DIR/tomcat/webapps https://www.dropbox.com/s/4lolu5o7txljyub/JCatascopia-Web.war
 RUN unzip $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web.war -d $TOMCAT_DIR/tomcat/webapps/JCatascopia-Web
 RUN mkdir -p /usr/share/tomcat/webapps/JCatascopia-Web/WEB-INF
 RUN sed -i 's/securerandom.source=file:\/dev\/random/securerandom.source=file:\/dev\/.\/urandom/g' /usr/lib/jvm/jre/lib/security/java.security 
