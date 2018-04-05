@@ -23,7 +23,7 @@ https://hub.docker.com/r/salmant/ul_monitoring_server_container_image/
 ## Step 2- Initiating the Monitoring Adapter on a machine such as “194.249.1.46”.
 
 ```
-docker run -e MONITORING_SERVER="194.249.1.175" -e MONITORING_PREFIX="eu.switch.beia" -p 4242:4242 -p 4245:4245 -p 8125:8125/udp beia/monitoring_agent
+docker run -e MONITORING_SERVER="194.249.1.175" -e MONITORING_PREFIX="eu.switch.beia" -p 4242:4242 -p 4245:4245 -p 8125:8125/udp beia/monitoring_adapter
 ```
 
 ## Step 3- Implementing the Monitoring Agent based on StatsD.
