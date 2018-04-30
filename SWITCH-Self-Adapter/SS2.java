@@ -33,18 +33,18 @@ public class SS2 {
 		int num_Servers = 12;
 		String[][] server_IP = new String[num_Servers][3];
 		for (int j=0; j<num_Servers; j++) server_IP[j][1] = "FREE";
-		server_IP[0][0] = "194.249.1.72";
-		server_IP[1][0] = "194.249.1.93";
-		server_IP[2][0] = "194.249.1.102";
-		server_IP[3][0] = "194.249.1.128";
-		server_IP[4][0] = "194.249.1.143";
-		server_IP[5][0] = "194.249.1.46";
-		server_IP[6][0] = "194.249.0.44";
-		server_IP[7][0] = "194.249.1.28";
-		server_IP[8][0] = "194.249.0.243";
-		server_IP[9][0] = "194.249.1.43";
-		server_IP[10][0] = "194.249.1.42";
-		server_IP[11][0] = "194.249.1.76";
+		server_IP[0][0] = "*.*.*.*";
+		server_IP[1][0] = "*.*.*.*";
+		server_IP[2][0] = "*.*.*.*";
+		server_IP[3][0] = "*.*.*.*";
+		server_IP[4][0] = "*.*.*.*";
+		server_IP[5][0] = "*.*.*.*";
+		server_IP[6][0] = "*.*.*.*";
+		server_IP[7][0] = "*.*.*.*";
+		server_IP[8][0] = "*.*.*.*";
+		server_IP[9][0] = "*.*.*.*";
+		server_IP[10][0] = "*.*.*.*";
+		server_IP[11][0] = "*.*.*.*";
 		///////////////////
 		while(true){
 		try {
