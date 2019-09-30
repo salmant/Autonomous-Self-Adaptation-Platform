@@ -8,13 +8,13 @@ The Autonomous Self-Adaptation Platform (ASAP) is designed and developed to buil
 
 ![Image](https://media-exp1.licdn.com/media-proxy/ext?w=800&h=800&f=n&hash=WlzlpYOo6Zp%2BSw4ktaKIY3RB05c%3D&ora=1%2CaFBCTXdkRmpGL2lvQUFBPQ%2CxAVta5g-0R6jnhodx1Ey9KGTqAGj6E5DQJHUA3L0CHH05IbfPWi6KMTZeOOh9kASfSoHjQBgeO-1STS1R47tKti7KN1w3cS2IZn5agYUbhl4j3lK6w)
 
-[comment]: <> (
+<!---
 ## Citation
 If you used any part of the SWITCH Monitoring System, please cite the following paper:
 <br />`“Dynamic Multi-level Auto-scaling Rules for Containerized Applications”, The Computer Journal, Oxford University Press. doi: 10.1093/comjnl/bxy043`
 
 https://academic.oup.com/comjnl/advance-article/doi/10.1093/comjnl/bxy043/4993728
-)
+-->
 ## Contact
 I would like to hear from people using the Autonomous Self-Adaptation Platform (ASAP). If you have any question or you would like to discuss any part of the system, please send an email to Salman.Taherizadeh@ijs.si 
 
