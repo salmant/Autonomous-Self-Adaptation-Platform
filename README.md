@@ -12,7 +12,7 @@ The Autonomous Self-Adaptation Platform (ASAP) is designed and developed to buil
 ## Recommended Document
 <br />`“Dynamic Multi-level Auto-scaling Rules for Containerized Applications”, The Computer Journal, Oxford University Press. doi: 10.1093/comjnl/bxy043`
 
-https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=8667607
+https://doi.org/10.1093/comjnl/bxy043
 
 ## Contact
 I would like to hear from people using the Autonomous Self-Adaptation Platform (ASAP). If you have any question or you would like to discuss any part of the system, please send an email to Salman.Taherizadeh@ijs.si 
